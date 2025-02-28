@@ -1,0 +1,1182 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: ChatBI青春版
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables:
+  - description: ''
+    id: 2bcdd407-7835-4267-ac09-2a1d5c3a91a0
+    name: text_results
+    selector:
+    - conversation
+    - text_results
+    value: ''
+    value_type: string
+  - description: ''
+    id: 1c4dff5c-15e3-4a65-9026-3513540da86c
+    name: csv_doc
+    selector:
+    - conversation
+    - csv_doc
+    value: ''
+    value_type: string
+  - description: ''
+    id: 3dd26b64-0527-4788-8af2-d0d013223e0a
+    name: original_question
+    selector:
+    - conversation
+    - original_question
+    value: ''
+    value_type: string
+  - description: ''
+    id: 144f3536-8d06-40fa-aa28-0cf9235d2bb1
+    name: solution
+    selector:
+    - conversation
+    - solution
+    value: ''
+    value_type: string
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 20
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 30
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: 欢迎使用ChatBI青春版
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+    - 简单介绍一下表格的内容
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1740549801349-source-1740549974389-target
+      selected: false
+      source: '1740549801349'
+      sourceHandle: source
+      target: '1740549974389'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 1740708410976-source-1740709295907-target
+      selected: false
+      source: '1740708410976'
+      sourceHandle: source
+      target: '1740709295907'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1740709295907-24d26db6-f3a0-4905-9f5f-405e3777c0ff-1740709549539-target
+      selected: false
+      source: '1740709295907'
+      sourceHandle: 24d26db6-f3a0-4905-9f5f-405e3777c0ff
+      target: '1740709549539'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1740709295907-true-1740710654616-target
+      selected: false
+      source: '1740709295907'
+      sourceHandle: 'true'
+      target: '1740710654616'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1740710654616-source-1740713773222-target
+      selected: false
+      source: '1740710654616'
+      sourceHandle: source
+      target: '1740713773222'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: question-classifier
+      id: 1740724354854-false-1740724399788-target
+      selected: false
+      source: '1740724354854'
+      sourceHandle: 'false'
+      target: '1740724399788'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: assigner
+      id: 1740709481636-source-1740724559038-target
+      selected: false
+      source: '1740709481636'
+      sourceHandle: source
+      target: '1740724559038'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: llm
+      id: 1740724559038-source-1740708410976-target
+      selected: false
+      source: '1740724559038'
+      sourceHandle: source
+      target: '1740708410976'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: assigner
+      id: 1740549974389-source-1740724708909-target
+      selected: false
+      source: '1740549974389'
+      sourceHandle: source
+      target: '1740724708909'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: llm
+      id: 1740724708909-source-1740709481636-target
+      selected: false
+      source: '1740724708909'
+      sourceHandle: source
+      target: '1740709481636'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1740724399788-1-1740724794968-target
+      selected: false
+      source: '1740724399788'
+      sourceHandle: '1'
+      target: '1740724794968'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1740724399788-2-1740725139367-target
+      selected: false
+      source: '1740724399788'
+      sourceHandle: '2'
+      target: '1740725139367'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1740724399788-2-1740725356109-target
+      selected: false
+      source: '1740724399788'
+      sourceHandle: '2'
+      target: '1740725356109'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1740725139367-source-1740725693196-target
+      selected: false
+      source: '1740725139367'
+      sourceHandle: source
+      target: '1740725693196'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1740725356109-source-1740725693196-target
+      selected: false
+      source: '1740725356109'
+      sourceHandle: source
+      target: '1740725693196'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1740709295907-false-1740709549539-target
+      selected: false
+      source: '1740709295907'
+      sourceHandle: 'false'
+      target: '1740709549539'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: if-else
+      id: 1740142419599-source-1740724354854-target
+      selected: false
+      source: '1740142419599'
+      sourceHandle: source
+      target: '1740724354854'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: assigner
+      id: 1740724354854-true-1740727197830-target
+      selected: false
+      source: '1740724354854'
+      sourceHandle: 'true'
+      target: '1740727197830'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: document-extractor
+      id: 1740727197830-source-1740549801349-target
+      selected: false
+      source: '1740727197830'
+      sourceHandle: source
+      target: '1740549801349'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: assigner
+      id: 1740713773222-source-1740727229776-target
+      selected: false
+      source: '1740713773222'
+      sourceHandle: source
+      target: '1740727229776'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: answer
+      id: 1740727229776-source-1740549938836-target
+      selected: false
+      source: '1740727229776'
+      sourceHandle: source
+      target: '1740549938836'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 1740724794968-source-1740732246972-target
+      source: '1740724794968'
+      sourceHandle: source
+      target: '1740732246972'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1740732246972-true-1740725087521-target
+      source: '1740732246972'
+      sourceHandle: 'true'
+      target: '1740725087521'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1740732246972-false-1740732272630-target
+      source: '1740732246972'
+      sourceHandle: 'false'
+      target: '1740732272630'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: excel
+          max_length: 48
+          options: []
+          required: true
+          type: file
+          variable: excel
+      height: 90
+      id: '1740142419599'
+      position:
+        x: 204.5347221699477
+        y: 322.6933804583278
+      positionAbsolute:
+        x: 204.5347221699477
+        y: 322.6933804583278
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: false
+        selected: false
+        title: 表格读取
+        type: document-extractor
+        variable_selector:
+        - '1740142419599'
+        - excel
+      height: 92
+      id: '1740549801349'
+      position:
+        x: 1301
+        y: 285
+      positionAbsolute:
+        x: 1301
+        y: 285
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1740549974389.text#}}
+
+
+
+          <br/>
+
+
+
+          {{#1740713773222.text#}}
+
+
+
+          '
+        desc: ''
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 122
+      id: '1740549938836'
+      position:
+        x: 4303.27752373554
+        y: 285
+      positionAbsolute:
+        x: 4303.27752373554
+        y: 285
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1740549801349'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus
+          provider: tongyi
+        prompt_template:
+        - id: 467d2594-c30c-48d4-ad2b-86f82145a8e4
+          role: system
+          text: '<任务>
+
+            你需要读取表格，根据用户的提问进行回答，并且尽量确保回答的内容可以转换成csv格式，以便后续可以进行表格渲染。请注意，你只需要回复文字，不要给我csv数据。
+
+            <表格信息>
+
+            以下是读取出的表格信息
+
+            {{#context#}}
+
+            <用户的问题>
+
+            {{#sys.query#}}'
+        selected: false
+        title: 大模型分析
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1740549974389'
+      position:
+        x: 1599.5832447812093
+        y: 285
+      positionAbsolute:
+        x: 1599.5832447812093
+        y: 285
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus
+          provider: tongyi
+        prompt_template:
+        - id: 3e6d2eaa-b27b-4cf5-bab4-2de6642a6715
+          role: system
+          text: '确认上游数据是否为规范的csv格式数据且内容可以通过echats生成表格。仅回复Y或者N
+
+            上游数据:{{#1740709481636.text#}}'
+        selected: false
+        title: 领导检查
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1740708410976'
+      position:
+        x: 2779.3125664140935
+        y: 285
+      positionAbsolute:
+        x: 2779.3125664140935
+        y: 285
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: c9ca5cd6-e702-4b92-923c-ba8483136cfb
+            value: Y
+            varType: string
+            variable_selector:
+            - '1740708410976'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: 24d26db6-f3a0-4905-9f5f-405e3777c0ff
+          conditions:
+          - comparison_operator: contains
+            id: 488e4f9d-6047-408f-bd57-311bd9979298
+            value: N
+            varType: string
+            variable_selector:
+            - '1740708410976'
+            - text
+          id: 24d26db6-f3a0-4905-9f5f-405e3777c0ff
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 174
+      id: '1740709295907'
+      position:
+        x: 3050
+        y: 285
+      positionAbsolute:
+        x: 3050
+        y: 285
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus
+          provider: tongyi
+        prompt_template:
+        - id: c274e102-a78f-4ba4-9a3a-b96ffb61499b
+          role: system
+          text: '根据上游回复，将数据内容转换为csv格式，以便后续生成表格。非数据内容的描述语句不要包括进去。只返回csv格式的内容。
+
+            {{#1740549974389.text#}}'
+        selected: false
+        title: CSV Str 转换
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1740709481636'
+      position:
+        x: 2202.593982449326
+        y: 285
+      positionAbsolute:
+        x: 2202.593982449326
+        y: 285
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1740549974389.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 2
+        type: answer
+        variables: []
+      height: 103
+      id: '1740709549539'
+      position:
+        x: 3344.1675521879083
+        y: 445.40495492518346
+      positionAbsolute:
+        x: 3344.1675521879083
+        y: 445.40495492518346
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-coder
+          provider: deepseek
+        prompt_template:
+        - id: bbc95e68-d522-47a8-8bf0-41faf27d4788
+          role: system
+          text: "<任务>\n你需要根据我输入的CSV字符串，生成一个合适的Echarts图表字符串。\n<要求>\nCSV字符串中可能存在不适合生成图表的数据，请将他们剔除。\n\
+            确保X坐标Y坐标的标注都清晰可见，图表会按800*600渲染。\n根据数据的内容，寻找最合适的图表展现方式。只返回echarts字符串。\n\
+            <样例输入>\n产品,1月,2月,3月,4月,5月,6月\n产品A,41.1,30.4,65.1,58.7,60.2,63.5\n产品B,86.5,92.1,85.7,89.2,88.3,90\n\
+            产品C,24.1,67.2,58.4,65.6,61.2,62.9\n产品D,36.8,21.9,35.6,34.1,37.3,33.5\n\
+            <样例输出>\n```echarts\n{\n  \"xAxis\": {\n    \"type\": \"category\",\n \
+            \   \"data\": [\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"\
+            Sun\"]\n  },\n  \"yAxis\": {\n    \"type\": \"value\"\n  },\n  \"series\"\
+            : [\n    {\n      \"data\": [120, 200, 150, 80, 70, 110, 130],\n     \
+            \ \"type\": \"bar\"\n    }\n  ]\n}\n```\n<用户的输入>\n{{#1740709481636.text#}}"
+        selected: false
+        title: Echarts生成
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1740710654616'
+      position:
+        x: 3344.1675521879083
+        y: 266.7831018268327
+      positionAbsolute:
+        x: 3344.1675521879083
+        y: 266.7831018268327
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-coder
+          provider: deepseek
+        prompt_template:
+        - id: d99334dc-6bc8-4668-9823-2107f00acf9f
+          role: system
+          text: '帮我检查一下上游生成的echart，保留格式，进行改错。
+
+            仅返回修改后的echarts字符串，如果没有错，则直接返回上游的echarts。
+
+            请注意，仅返回echarts字符串，不要返回其他内容。
+
+            {{#1740710654616.text#}}'
+        selected: false
+        title: Echart领导
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1740713773222'
+      position:
+        x: 3652.058408458028
+        y: 277.2395279882557
+      positionAbsolute:
+        x: 3652.058408458028
+        y: 277.2395279882557
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: 34c80d63-35ec-4f85-a7da-b6550745c6a4
+            value: '0'
+            varType: number
+            variable_selector:
+            - sys
+            - dialogue_count
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支-是否第一次问答
+        type: if-else
+      height: 126
+      id: '1740724354854'
+      position:
+        x: 537.0992573368453
+        y: 322.6933804583278
+      positionAbsolute:
+        x: 537.0992573368453
+        y: 322.6933804583278
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: 单纯图表修改，例如:"修改表的颜色"、“减少表中的内容”
+        - id: '2'
+          name: '除单纯图表修改之外的要求，例如: 追问类问题'
+        desc: ''
+        instruction: ''
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus
+          provider: tongyi
+        query_variable_selector:
+        - '1740142419599'
+        - sys.query
+        selected: false
+        title: 问题分类器
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 208
+      id: '1740724399788'
+      position:
+        x: 898.9493612772935
+        y: 416
+      positionAbsolute:
+        x: 898.9493612772935
+        y: 416
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1740709481636'
+          - text
+          variable_selector:
+          - conversation
+          - csv_doc
+          write_mode: over-write
+        selected: false
+        title: 存储csv
+        type: assigner
+        version: '2'
+      height: 88
+      id: '1740724559038'
+      position:
+        x: 2510.354454461071
+        y: 285
+      positionAbsolute:
+        x: 2510.354454461071
+        y: 285
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1740549974389'
+          - text
+          variable_selector:
+          - conversation
+          - text_results
+          write_mode: over-write
+        selected: false
+        title: 存储概要
+        type: assigner
+        version: '2'
+      height: 88
+      id: '1740724708909'
+      position:
+        x: 1890.1772272305352
+        y: 285
+      positionAbsolute:
+        x: 1890.1772272305352
+        y: 285
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus
+          provider: tongyi
+        prompt_template:
+        - id: 4e9161a1-9cfb-494d-b381-f3ff4bae09c6
+          role: system
+          text: '<角色>
+
+            你是一个高级数据分析师，你的实习生提交了一份材料被用户打回了，主要是图表不好看，现在需要你根据你的实习生与用户的聊天记录，完善图表配置，并返回echarts字符串。
+
+            <要求>
+
+            1. 仅返回echarts字符串，实习生提供的格式是没有问题的，例如你的返回需要以```echarts开头，并在结尾用```收尾。
+
+            2. 需要修改的一般都是颜色，字体大小，图表样式等美观问题。
+
+            3. 仅返回echarts字符串，不要提供任何解释
+
+            <历史聊天记录>
+
+            用户的问题:{{#conversation.original_question#}}
+
+            数据情况: {{#conversation.csv_doc#}}
+
+            实习生的回答:{{#conversation.text_results#}}
+
+            实习生给的echarts: {{#conversation.solution#}}
+
+            <用户对图表的修改要求>
+
+            {{#sys.query#}}'
+        selected: false
+        title: Echart修改
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1740724794968'
+      position:
+        x: 1305
+        y: 416
+      positionAbsolute:
+        x: 1305
+        y: 416
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '感谢您提供的反馈，我们已经将图表按照您的方式重新生成了。
+
+          <br/>
+
+          {{#1740724794968.text#}}
+
+          '
+        desc: ''
+        selected: false
+        title: 直接回复 3
+        type: answer
+        variables: []
+      height: 135
+      id: '1740725087521'
+      position:
+        x: 1949.2831367749986
+        y: 416
+      positionAbsolute:
+        x: 1949.2831367749986
+        y: 416
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus
+          provider: tongyi
+        prompt_template:
+        - id: 575ac72e-3c6f-4e98-aa4f-61a200c744de
+          role: system
+          text: '<角色>
+
+            你是一个高级数据分析师，你已经回答了用户的问题，但是用户现在对数据有了跟进问题，需要你回想你和用户的聊天记录，并根据他的追问问题重新生成一个文字回答
+
+            <历史聊天记录>
+
+            用户的问题:{{#conversation.original_question#}}
+
+            数据情况: {{#conversation.csv_doc#}}
+
+            你的回答:{{#conversation.text_results#}}
+
+            <用户的追问>
+
+            {{#sys.query#}}'
+        selected: false
+        title: 文字更新
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1740725139367'
+      position:
+        x: 1305
+        y: 553
+      positionAbsolute:
+        x: 1305
+        y: 553
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus
+          provider: tongyi
+        prompt_template:
+        - id: e7308042-93f7-4477-a668-380dc54772de
+          role: system
+          text: '<角色>
+
+            你是一个高级图表渲染师，你和你的数据分析师同事已经服务了用户一轮，提供了数据分析结果和一个echarts字符串。现在用户有了新的问题，需要你根据用户的问题，在原有的echarts字符串中增加内容。
+
+            <要求>
+
+            仅返回echarts字符，你之前提供的格式是没有问题的。
+
+            <历史聊天记录>
+
+            用户的问题:{{#conversation.original_question#}}
+
+            数据情况: {{#conversation.csv_doc#}}
+
+            数据分析师的回答:{{#conversation.text_results#}}
+
+            你提供的echarts: {{#conversation.solution#}}
+
+            <用户的跟进问题>
+
+            {{#sys.query#}}'
+        selected: false
+        title: Echart修改
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1740725356109'
+      position:
+        x: 1305
+        y: 690
+      positionAbsolute:
+        x: 1305
+        y: 690
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1740725139367.text#}}
+
+
+
+          <br/>
+
+
+
+          {{#1740725356109.text#}}
+
+          '
+        desc: ''
+        selected: false
+        title: 直接回复 4
+        type: answer
+        variables: []
+      height: 122
+      id: '1740725693196'
+      position:
+        x: 1649.2831367749986
+        y: 593.4952163301451
+      positionAbsolute:
+        x: 1649.2831367749986
+        y: 593.4952163301451
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - sys
+          - query
+          variable_selector:
+          - conversation
+          - original_question
+          write_mode: over-write
+        selected: false
+        title: 存储问题
+        type: assigner
+        version: '2'
+      height: 88
+      id: '1740727197830'
+      position:
+        x: 898.9493612772935
+        y: 285
+      positionAbsolute:
+        x: 898.9493612772935
+        y: 285
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1740713773222'
+          - text
+          variable_selector:
+          - conversation
+          - solution
+          write_mode: over-write
+        selected: false
+        title: 存储echart
+        type: assigner
+        version: '2'
+      height: 88
+      id: '1740727229776'
+      position:
+        x: 3980.1717187417194
+        y: 285
+      positionAbsolute:
+        x: 3980.1717187417194
+        y: 285
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 3e83717b-a6b9-4a0f-8c15-f9edb2bbfd2c
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - solution
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 3
+        type: if-else
+      height: 126
+      id: '1740732246972'
+      position:
+        x: 1649.2831367749986
+        y: 416
+      positionAbsolute:
+        x: 1649.2831367749986
+        y: 416
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '感谢您提供的反馈，正在为您生成图表。
+
+          <br/>
+
+          {{#1740724794968.text#}}
+
+          '
+        desc: ''
+        selected: false
+        title: 直接回复 5
+        type: answer
+        variables: []
+      height: 119
+      id: '1740732272630'
+      position:
+        x: 1949.2831367749986
+        y: 590
+      positionAbsolute:
+        x: 1949.2831367749986
+        y: 590
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 44.925728497452724
+      y: 265.40307076294823
+      zoom: 0.25
